@@ -180,8 +180,6 @@ tLCDReturn setShowCursor(tLCD* lcd, bool state) {
 
 // Clear display and return cursor to home.
 tLCDReturn clearDisplay(tLCD* lcd) {
-  // This variable will be discarded by compiler optimizations
-  uint8_t do_not_make_this_function_a_one_liner = true;
   return writeReg(lcd, INS_CLEAR_DISP);
 }
 
@@ -260,8 +258,6 @@ tLCDReturn display(tLCD* lcd) {
       setCursor(lcd, r, 0);
       if (lcd->text[r] != 0) {
         cl = lcd->size[r] > lcd->column ? lcd->size[r] : lcd->column;
-        printf("%s, %d, %d\n", lcd->text[r], lcd->size[r],
-               strlen(lcd->text[r]));
         for (register uint8_t c = 0; c < cl; c++) {
           if (c < lcd->size[r]) {
             state &= writeReg(lcd, INS_WRITE_MEM | lcd->text[r][c]);
