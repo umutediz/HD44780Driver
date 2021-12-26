@@ -16,8 +16,6 @@
 #define __CONVERT_TO_PCF(X) \
   ((X & 0xF8) | ((X & 0x100) >> 7) | ((X & 0x200) >> 9))
 
-#define RASPBERRYPI
-
 #ifdef RASPBERRYPI
 #warning "Compiling for Raspberry Pi"
 #include <unistd.h>
