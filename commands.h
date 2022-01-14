@@ -31,7 +31,7 @@ typedef enum {
 } tLCDInterface;
 
 typedef struct {
-  uint32_t _i2cHandler;
+  uint32_t* _i2cHandler;
   uint32_t ports[PIN_COUNT];
   uint8_t* text[MAX_ROW];
   uint8_t pins[PIN_COUNT];
@@ -49,7 +49,7 @@ typedef struct {
 } tLCD;
 
 // Set I2C address if i2c used as interface.
-tLCDReturn configI2C(tLCD* lcd, uint8_t addr);
+tLCDReturn configI2C(tLCD *lcd, uint32_t *i2c, uint8_t addr);
 
 // Configure ParallelPort for interfacing with display.
 tLCDReturn configParallelPort(tLCD* lcd, uint32_t** ports, uint8_t* pins);
